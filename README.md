@@ -1,11 +1,11 @@
 # Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh
 Setup **windows Terminal** from scratch with **Neovim** and customize with **Oh My Posh**
-# Features
-**ToggleTree** with **Neovim**
+# Features:
+### Setup of Neovim
 ![image](https://github.com/tribhuwan-kumar/Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh/assets/118052427/bec3550e-868a-4915-a227-9806c91bc0b5)
 ### Terminal Icons
 ![image](https://github.com/tribhuwan-kumar/Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh/assets/118052427/3649cd1b-c65d-4463-b288-d5c1a5621934)
-### command History
+### Command History
 ![image](https://github.com/tribhuwan-kumar/Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh/assets/118052427/8d2ac6b1-a627-4d5b-ade1-8bd61ff040a4)
 
 
@@ -25,3 +25,4 @@ Clone this repository by using git clone command
 ```bash
 git clone https://github.com/tribhuwan-kumar/Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh.git .\AppData\Local\nvim
 ```
+
