@@ -1,6 +1,11 @@
 # Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh
 Setup **windows Terminal** from scratch with **Neovim** and customize with **Oh My Posh**
 ![image](https://github.com/tribhuwan-kumar/Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh/assets/118052427/779de102-40cf-4b61-a04f-204d06300de5)
+### Terminal Icons
+![image](https://github.com/tribhuwan-kumar/Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh/assets/118052427/3649cd1b-c65d-4463-b288-d5c1a5621934)
+### command History
+![image](https://github.com/tribhuwan-kumar/Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh/assets/118052427/8d2ac6b1-a627-4d5b-ade1-8bd61ff040a4)
+
 
 ## Required Installation
 - Install **Windows Terminal** from [here](https://www.microsoft.com/store/productid/9N0DX20HK701?ocid=pdpshare)
