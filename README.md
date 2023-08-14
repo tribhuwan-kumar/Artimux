@@ -7,3 +7,8 @@ Setup **windows Terminal** from scratch with **Neovim** and customize with **Oh 
 ```bash
 winget install --id=Neovim.Neovim -e 
 ```
+- After that, run this command in **Powershell**
+```bash
+iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+    ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
+```
