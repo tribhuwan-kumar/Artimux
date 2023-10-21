@@ -25,4 +25,4 @@ Clone this repository by using git clone command
 ```bash
 git clone https://github.com/tribhuwan-kumar/Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh.git .\AppData\Local\nvim
 ```
-
+ 
