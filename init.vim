@@ -25,7 +25,9 @@ Plug 'https://github.com/nvim-tree/nvim-tree.lua' " For file tree
 Plug 'https://github.com/akinsho/toggleterm.nvim' " For Terminal
 Plug 'https://github.com/ayu-theme/ayu-vim'  " For ayu_dark theme
 Plug 'https://github.com/kaicataldo/material.vim' " material colorscheme 
+Plug 'https://github.com/LunarVim/Neovim-from-scratch/tree/16-toggleterm' " For vim terminal    
 
+  
 " Auto-completion  For Javascript
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " this is for auto complete, prettier and tslinting
 
@@ -61,21 +63,23 @@ set encoding=UTF-8
 
 call plug#end()
 
+set splitright
+
 " Keybindings
 nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
-nnoremap <C-p> :term pwsh<CR>
-
+nnoremap <C-s> :w<CR>
+nnoremap <C-p> :vsplit \| term pwsh<CR>
+" nnoremap <C-l> :wa \| vertical botright term ++kill=term<CR>
+" nnoremap <C-o> :tabnew term://pwsh<CR>
 
 nmap <F8> :TagbarToggle<CR>
 
 :set completeopt-=preview " For No Previews
 
 " :set g:python3_host_prog   " to avoid surprises
-
-
 
 " :colorscheme ayu " Here you can change themes
 
