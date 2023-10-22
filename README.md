@@ -13,6 +13,17 @@
 - Install **Windows Terminal** from [here](https://www.microsoft.com/store/productid/9N0DX20HK701?ocid=pdpshare)
 - Install **Git Bash** from [here](https://git-scm.com/downloads)
 - Install **PowerShell** from [here](https://www.microsoft.com/store/productid/9MZ1SNWT0N5D?ocid=pdpshare)
+
+<hr>
+
+## Automatic Setup:
+
+#### If you don't want setup manually then just run `setUp.py` file or `setUp.exe` file. make sure that python has installed in your computer.
+
+<hr>
+
+## Manually Setup:
+
 Install **Choco** by running the following command in **PowerShell**(admin)
 ```bash
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
@@ -72,5 +83,11 @@ Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -Skip
 ```bash
 Install-Script winfetch
 ```
+
+- Run command to install **go-my-posh** (For fast loading themes)
+```bash
+Install-Module go-my-posh
+```
+
 ### Your Terminal is ready :heart: , Drop a Star :star:
 #### I will add more plugins and Features :blush:
