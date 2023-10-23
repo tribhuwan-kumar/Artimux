@@ -18,7 +18,14 @@
 
 ## Automatic Setup:
 
-#### If you don't want setup manually then just run `setUp.py` file or `setUp.exe` file. make sure that python has installed in your computer.
+#### If you don't want setup manually then follow these steps for automatic setup
+
+- Clone this repository by using this **git clone** command
+```bash
+git clone https://github.com/tribhuwan-kumar/Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh.git .\AppData\Local\nvim
+```
+
+#### After cloning this repository run `setUp.py` file. Make sure that python has installed in your computer.
 
 <hr>
 
