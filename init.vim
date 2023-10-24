@@ -58,15 +58,28 @@ set termguicolors     " enable true colors support
 
 
 set encoding=UTF-8
-
 call plug#end()
+set splitright
+set clipboard=unnamedplus
 
 " Keybindings
 nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-t> :NERDTreeToggle<CR> 
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
-nnoremap <C-p> :term pwsh<CR>
+nnoremap <C-s> :w<CR>
+nnoremap <C-p> :vsplit \| term pwsh<CR>
+vnoremap <C-c> "+y
+noremap <C-v> "+p
+nnoremap <C-a> ggVG
+nnoremap <C-z> u
+nnoremap <C-S-z> r
+
+" insert mode Keybindings
+inoremap <S-Left> <Esc>vh     
+inoremap <S-Right> <Esc>vl
+inoremap <S-Up> <Esc>vk
+inoremap <S-Down> <Esc>vj
 
 
 nmap <F8> :TagbarToggle<CR>
