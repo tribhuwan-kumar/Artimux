@@ -16,6 +16,7 @@
 
 <hr>
 
+<!-- 
 ## Automatic Setup:
 
 #### If you don't want setup manually then follow these steps for automatic setup
@@ -28,6 +29,7 @@ git clone https://github.com/tribhuwan-kumar/Setup-Powershell-Terminal-with-Neov
 #### After cloning this repository run `setUp.py` file. Make sure that python has installed in your computer.
 
 <hr>
+ -->
 
 ## Manually Setup:
 
