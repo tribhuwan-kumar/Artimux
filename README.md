@@ -16,7 +16,7 @@
 
 <hr>
 
-<!-- 
+
 ## Automatic Setup:
 
 #### If you don't want setup manually then follow these steps for automatic setup
@@ -26,10 +26,10 @@
 git clone https://github.com/tribhuwan-kumar/Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh.git .\AppData\Local\nvim
 ```
 
-#### After cloning this repository run `setUp.py` file. Make sure that python has installed in your computer.
+#### After cloning this repository go to cloned directory & run `setUp.py` file. Make sure that `Python 3.12.0` has installed in your computer.
 
 <hr>
- -->
+
 
 ## Manually Setup:
 
@@ -99,4 +99,4 @@ Install-Module go-my-posh
 ```
 
 ### Your Terminal is ready :heart: , Drop a Star :star:
-#### I will add more plugins and Features :blush:
+#### I will add more plugins and features :blush:
