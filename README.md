@@ -26,7 +26,7 @@
 git clone https://github.com/tribhuwan-kumar/Setup-Powershell-Terminal-with-Neovim-and-Oh-My-Posh.git .\AppData\Local\nvim
 ```
 
-#### After cloning this repository go to cloned directory & run `setUp.py` file. Make sure that `Python 3.12.0` has installed in your computer.
+#### After cloning this repository go to the cloned directory & run `Setup.py` file. Make sure that `Python 3.12.0` has installed in your computer.
 
 <hr>
 
