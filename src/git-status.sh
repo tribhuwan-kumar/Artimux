@@ -1,36 +1,30 @@
 #!/usr/bin/env bash
+#<-------------------------Git, branch name & pull indicator-------------------------------------->
+cd "$1" || exit 1
 
-cd $1
-RESET="#[fg=brightwhite,bg=#15161e,nobold,noitalics,nounderscore,nodim]"
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo " "
+    exit 0
+fi
+
+SYNC_STATUS=$(git fetch --atomic origin --negotiation-tip=HEAD & git status -uno)
 BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-STATUS=$(git status --porcelain 2>/dev/null| egrep "^(M| M)" | wc -l)
 
-STATUS_CHANGED=""
-STATUS_INSERTIONS=""
-STATUS_DELETIONS=""
+if [[ $SYNC_STATUS =~ "Your branch is up to date" ]]; then
+    echo " #[fg=#44dfaf,bg=#090909,bold]󱍸  $BRANCH"
 
-if test "$STATUS" != "0"; then
-  CHANGED_COUNT=$(git diff --shortstat 2>/dev/null | tr "," "\n" | grep "chang" | cut -d" " -f2 | bc)
-  INSERTIONS_COUNT="$(git diff --shortstat 2>/dev/null | tr "," "\n" | grep "ins" | cut -d" " -f2 | bc)"
-  DELETIONS_COUNT="$(git diff --shortstat 2>/dev/null | tr "," "\n" | grep "del" | cut -d" " -f2 | bc)"
+elif [[ $SYNC_STATUS =~ "Your branch is ahead of" ]]; then
+    echo " #[fg=#e0af68,bg=#090909,bold]󰵵   $BRANCH"
+
+elif [[ $SYNC_STATUS =~ "Your branch is behind" ]]; then
+    echo " #[fg=#f7768e,bg=#090909,bold]󰁭  $BRANCH"
+
+else
+    echo " #[fg=#8a8cab,bg=#090909,bold]󰕚  $BRANCH"
 fi
 
-if [[ $CHANGED_COUNT > 0 ]]; then
-  STATUS_CHANGED="#[fg=#e0af68,bg=#15161e,bold] ${CHANGED_COUNT} "
-fi
-
-if [[ $INSERTIONS_COUNT > 0 ]]; then
-  STATUS_INSERTIONS="#[fg=#44dfaf,bg=#15161e,bold] ${INSERTIONS_COUNT} "
-fi
-
-if [[ $DELETIONS_COUNT > 0 ]]; then
-  STATUS_DELETIONS="#[fg=#f7768e,bg=#15161e,bold] ${DELETIONS_COUNT} "
-fi
-
-if test "$BRANCH" != ""; then
-  if test "$STATUS" = "0"; then
-    echo "#[fg=#44dfaf,bg=#15161e,bold]🮐  $RESET$BRANCH "
-  else
-    echo "#[fg=#ff1178,bg=#15161e,bold]🮐  $RESET$BRANCH $RESET$STATUS_CHANGED$RESET$STATUS_INSERTIONS$RESET$STATUS_DELETIONS"
-  fi
+sleep 900
+INTERVAL="$(tmux show -g | grep status-interval | cut -d" " -f2 | bc)"
+if [[ $INTERVAL < 60 ]]; then
+    sleep 900
 fi
