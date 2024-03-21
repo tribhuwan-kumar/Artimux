@@ -14,7 +14,7 @@ if [[ $SYNC_STATUS =~ "Your branch is up to date" ]]; then
     echo " #[fg=#44dfaf,bg=#090909,bold]󱍸  $BRANCH"
 
 elif [[ $SYNC_STATUS =~ "Your branch is ahead of" ]]; then
-    echo " #[fg=#e0af68,bg=#090909,bold]󰵵   $BRANCH"
+    echo " #[fg=#e0af68,bg=#090909,bold]󰵵  $BRANCH"
 
 elif [[ $SYNC_STATUS =~ "Your branch is behind" ]]; then
     echo " #[fg=#f7768e,bg=#090909,bold]󰁭  $BRANCH"

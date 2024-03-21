@@ -68,13 +68,19 @@ function play_loop() {
     mpv --no-video --msg-level=all=no --loop "$1"
 }
 
-# EXISTING_SONG=$(find "$MUSIC_DIR" -type f -iname "*$QUERY*" | head -n 1)
+
+# Existing song search command, maybe its weird but it works 🥴, I poluted the grep, I'm sorry
 
 # Remove leading whitespace, and trailing
-REMOVE_WHITESPACE="${QUERY#"${QUERY%%[![:space:]]*}"}"
-TRAILED_QUERY="${REMOVE_WHITESPACE%"${REMOVE_WHITESPACE##*[![:space:]]}"}"
+# REMOVE_WHITESPACE="${QUERY#"${QUERY%%[![:space:]]*}"}"
+# TRAILED_QUERY="${REMOVE_WHITESPACE%"${REMOVE_WHITESPACE##*[![:space:]]}"}"
 
-EXISTING_SONG=$(find "$MUSIC_DIR" -type f | grep -i -E ".*$TRAILED_QUERY.*" | head -n 1)
+# EXISTING_SONG=$(find "$MUSIC_DIR" -type f -iname "*$QUERY*" | head -n 1)
+# EXISTING_SONG=$(find "$MUSIC_DIR" -type f | grep -i -E ".*$TRAILED_QUERY.*" | head -n 1)
+
+# read -ra SPLIT_QUERY <<< "$QUERY"
+read -ra SPLIT_QUERY <<< "${QUERY:1}"
+EXISTING_SONG=$(find "$MUSIC_DIR" -type f | grep -i -E ".*${SPLIT_QUERY[0]}.*${SPLIT_QUERY[1]}.*${SPLIT_QUERY[2]}.*${SPLIT_QUERY[3]}.*${SPLIT_QUERY[4]}.*" | head -n 1)
 
 if [ -n "$EXISTING_SONG" ]; then
     SONG_TITLE=$(basename "$EXISTING_SONG")
@@ -87,8 +93,8 @@ if [ -n "$EXISTING_SONG" ]; then
     play "$EXISTING_SONG"
     exit 0
 else
-    echo "Searching: 󰥖 ${QUERY:1}"
     # Fetch results
+    echo "Searching: 󰥖 ${QUERY:1}"
     RESULTS=$(yt-dlp --default-search "ytsearch" -j "ytsearch$NUM_RESULTS:${QUERY:1}" --match-filters "duration>80")
     URLS=$(echo "$RESULTS" | jq -r '.webpage_url')
     TITLES=$(echo "$RESULTS" | jq -r '.fulltitle')
