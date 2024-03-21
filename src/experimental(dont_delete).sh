@@ -166,7 +166,13 @@ fi
 
 
 
+# <----------------------Trailing algorithm-------------------------->
+# Remove leading whitespace, and trailing
+# REMOVE_WHITESPACE="${QUERY#"${QUERY%%[![:space:]]*}"}"
+# TRAILED_QUERY="${REMOVE_WHITESPACE%"${REMOVE_WHITESPACE##*[![:space:]]}"}"
 
+# EXISTING_SONG=$(find "$MUSIC_DIR" -type f -iname "*$QUERY*" | head -n 1)
+# EXISTING_SONG=$(find "$MUSIC_DIR" -type f | grep -i -E ".*$TRAILED_QUERY.*" | head -n 1)
 
 
 
