@@ -47,11 +47,7 @@ while true; do
     if [ "$width" -lt 115 ]; then
         echo "❬ ⮛ $RX_SPEED ⮙ $TX_SPEED"
     else
-        echo "❬ ⮛ $RX_SPEED ⮙ $TX_SPEED $(date '+❬ %H:%M')"
+        echo "❬ ⮛ $RX_SPEED ⮙ $TX_SPEED $(date '+❬ %I:%M %p')"
     fi
 done
-
-
-
-
 
