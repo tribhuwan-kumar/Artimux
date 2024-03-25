@@ -20,7 +20,7 @@ SHUFFLE=false
 
 QUERY=""
 NUM_RESULTS=1
-MUSIC_DIR="$HOME/Music/tmux-yt-dlp"
+MUSIC_DIR="$HOME/Music/tym"
 
 # Parse arguments
 while [[ "$#" -gt 0 ]]; do
