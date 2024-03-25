@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 #<------------------------------TYM widget for TMUX------------------------------------>
 MPV_SOCKET_PATH="/tmp/mpvsocket"
-CURRENT_COMMAND=$(tmux display-message -p '#{pane_current_command}')
+CURRENT_PANE_PID=$(tmux display-message -p '#{pane_pid}')
+TYM_PID=$(ps aux | grep "/usr/local/bin/tym" | grep -v grep | awk '{print $2}')
+CURRNET_PANE_TYMID=$(pgrep -P $CURRENT_PANE_PID | xargs -n 1 pstree -p | grep -oP 'bash\(\K\d+(?=\))' | tail -n 1)
 
-if [ "$CURRENT_COMMAND" == "tym" ]; then
-    tmux rename-window "$CURRENT_COMMAND"
+if [ "$CURRNET_PANE_TYMID" == "$TYM_PID" ]; then
+    tmux rename-window " ƬƳ𐒄 ℓινє.."
 fi
 
 mpv_socket_active() {

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#<------------------------------Shell for enjoying Youtube Music in CLI (TYM)------------------------------------>
+#<------------------------------Shell script for streaming Youtube Music in CLI (TYM)------------------------------------>
 # author : @tribhuwan-kumar
 # email : freakybytes@duck.com
 #<------------------------------------------------------------------------------------------>
@@ -142,3 +142,4 @@ else
     echo -e "󰽰 ${QUERY:1}..."
     play "$SONG_PATH"
 fi
+
