@@ -12,7 +12,7 @@ EOF
 exit
 }
 
-# Define  parse
+# Define parse
 HELP=false
 NEXT=false
 REPEAT=false
