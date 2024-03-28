@@ -11,7 +11,7 @@ set -g @plugin 'tribhuwan-kumar/Artimux'
 For more customization [see](https://github.com/janoamaral/tokyo-night-tmux#tokyo-night-tmux)
 
 ## TYM (Tmux YouTube Music)
-A simple shell script for streaming YouTube Music in the terminal.
+A simple shell application for streaming YouTube Music in the terminal.
 
 ### Configuration of TYM:
 #### Depndencies
@@ -35,9 +35,9 @@ sudo ln -s ~/.tmux/plugins/Artimux/src/tym.sh /usr/local/bin/tym
 Just run `tym` along with the song name you want to play, It will search for that song in `~/Music/tym` directory, If the song is not found, then
 it will search on YouTube and play it.
 #### Flags:
-- `-h` for help.
-- `-r` for play the song in repeat mode.
-- `-s` for shuffle the all songs of directory.
+- `-h | --help` for help.
+- `-r | --repeat` for play the song in repeat mode.
+- `-s | --shuffle` for shuffle all songs from directory.
 
 #### Keybindings
 It uses the default keybindings of `mpv`, but you can customize it too

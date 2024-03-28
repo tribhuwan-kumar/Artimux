@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#<------------------------------Shell script for streaming Youtube Music in CLI (TYM)------------------------------------>
+#<------------------------------Shell application for streaming Youtube Music in CLI (TYM)------------------------------------>
 # author : @tribhuwan-kumar
 # email : freakybytes@duck.com
 #<------------------------------------------------------------------------------------------>
@@ -14,7 +14,6 @@ exit
 
 # Define parse
 HELP=false
-NEXT=false
 REPEAT=false
 SHUFFLE=false
 
@@ -29,11 +28,11 @@ while [[ "$#" -gt 0 ]]; do
             HELP=true
             shift
             ;;
-        -r)
+        -r|--repeat)
             REPEAT=true
             shift
             ;;
-        -s)
+        -s|--shuffle)
             SHUFFLE=true
             shift
             ;;
@@ -52,20 +51,37 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 
+# Check tym directory
 if [ ! -d "$MUSIC_DIR" ]; then
     mkdir -p "$MUSIC_DIR"
 fi
 
+# Check dependencies
+if ! command -v jq &> /dev/null; then
+    error "jq was not found, please install it!!"
+elif ! command -v mpv &> /dev/null; then
+    error "mpv was not found, please install it!!"
+elif ! command -v yt-dlp &> /dev/null; then
+    error "youtube-dl was not found, please install it!!"
+elif ! command -v nc &> /dev/null; then
+    error "openbsd-netcat was not found, please install it!!"
+elif ! command -v atomicparsley &> /dev/null; then
+    error "atomicparsley was not found, please install it!!"
+fi
+
+# Play
 function play() {
     mpv --input-ipc-server=/tmp/mpvsocket --no-video --msg-level=all=no "$1"
     wait $!
 }
 
+# Play in loop
 function play_loop() {
     mpv --input-ipc-server=/tmp/mpvsocket --no-video --msg-level=all=no --loop "$1"
     wait $!
 }
 
+# Play shuffle playlist
 function shuffle_playlist() {
     local -a SONGS=("$MUSIC_DIR"/*)
     local PLAYLIST_PATH="/tmp/playlist.m3u"
