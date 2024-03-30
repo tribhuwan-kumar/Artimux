@@ -14,14 +14,14 @@ set -g @plugin 'tribhuwan-kumar/Artimux'
 A simple shell application for streaming YouTube Music in the terminal.
 
 ### Configuration of TYM:
-#### Depndencies
+### Depndencies:
 - [`jq`](https://jqlang.github.io/jq/download/)
 - [`mpv`](https://mpv.io/installation/)
 - [`yt-dlp`](https://github.com/yt-dlp/yt-dlp/wiki/Installation)
 - [`openbsd-netcat`](https://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/net/netcat-openbsd/index.html)
 - [`atomicparsley`](https://github.com/wez/atomicparsley#install)
 
-For Arch Linux
+For Arch Linux:
 ```bash
 pacman -S jq mpv yt-dlp openbsd-netcat atomicparsley
 ```
@@ -31,7 +31,7 @@ Create a symbolic of `tym.sh` in your `$PATH` and make it executable.
 sudo ln -s ~/.tmux/plugins/Artimux/src/tym.sh /usr/local/bin/tym
 ```
 
-### Usage
+### Usage:
 Just run `tym` along with the song name you want to play, It will search for that song in `~/Music/tym` directory, If the song is not found, then
 it will search on YouTube and play it.
 #### Flags:
@@ -39,7 +39,7 @@ it will search on YouTube and play it.
 - `-r | --repeat` for play the song in repeat mode.
 - `-s | --shuffle` for shuffle all songs from directory.
 
-#### Keybindings
+#### Keybindings:
 It uses the default keybindings of `mpv`, but you can customize it too
 - `q` for quit.
 - `m` for mute.
@@ -48,28 +48,27 @@ It uses the default keybindings of `mpv`, but you can customize it too
 - `<` & `>` for playing next and previous song in shuffle mode.
 
 ## Widgets:
-
-#### Netspeed
+### Netspeed
 ```bash
 set -g @Artimux_show_netspeed "true"
 set -g @Artimux_netspeed_iface "wlan0" # your network interface, find with ip link
 ```
 
-#### Time
+### Time
 ```bash
 set -g @Artimux_show_time "true"
 set -g @Artimux_time_format "12HR" # 12HR or 24HR
 ```
-set variables values "false" to disable the widget, Remember to restart the tmux after changing values.
+set variables values `"false"` to disable the widget, Remember to restart the tmux after changing values.
 <br>
 For status bar numbers customization [see](https://github.com/janoamaral/tokyo-night-tmux#the-styles)
-#### CMUS and Now Playing 
+### CMUS and Now Playing
 - Enabled by default, dynamically shows the current playing song in cmus.
 
-#### TYM
+### TYM
 - Same as CMUS widget, but for TYM.
 
-#### Git Branch and Status indicator
+### Git Branch and Status indicator
 - Enabled by default
 - Shows the current git branch and status of the repository. so you won't forget to commit, pull or push.
 
