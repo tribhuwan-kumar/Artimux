@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#<-------------------------Git, branch name & pull indicator-------------------------------------->
+#<-------------------------Git, branch name & pull indicator for ARTITMUX-------------------------------------->
 cd "$1" || exit 1
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then

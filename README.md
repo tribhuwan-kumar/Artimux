@@ -3,13 +3,13 @@ A clean dark theme for tmux, inspired by [janoamaral/tokyo-night-tmux](https://g
 Music integration.
 
 ## Installation
+
 #### Using TPM (Tmux Plugin Manager):
 Add the plugin to the list of TPM plugins in `.tmux.conf`:
+
 ```bash
 set -g @plugin 'tribhuwan-kumar/Artimux'
 ```
-For more customization [see](https://github.com/janoamaral/tokyo-night-tmux#tokyo-night-tmux)
-
 ## TYM (Tmux YouTube Music)
 A simple shell application for streaming YouTube Music in the terminal.
 
@@ -48,12 +48,37 @@ It uses the default keybindings of `mpv`, but you can customize it too
 - `<` & `>` for playing next and previous song in shuffle mode.
 
 ## Widgets:
-There is `Netspeed`, `Git` & `TYM` widget in this theme.
-> [!NOTE]
->  All widgets are enabled by default.
 
-<img src="https://github.com/tribhuwan-kumar/Artimux/assets/118052427/5eed1f74-c7cc-4015-aa8d-563ace436b52" />
+#### Netspeed
+```bash
+set -g @Artimux_show_netspeed "true"
+set -g @Artimux_netspeed_iface "wlan0" # your network interface, find with ip link
+```
 
+#### Time
+```bash
+set -g @Artimux_show_time "true"
+set -g @Artimux_time_format "12HR" # 12HR or 24HR
+```
+set variables values "false" to disable the widget, Remember to restart the tmux after changing values.
+<br>
+For status bar numbers customization [see](https://github.com/janoamaral/tokyo-night-tmux#the-styles)
+#### CMUS and Now Playing 
+- Enabled by default, dynamically shows the current playing song in cmus.
+
+#### TYM
+- Same as CMUS widget, but for TYM.
+
+#### Git Branch and Status indicator
+- Enabled by default
+- Shows the current git branch and status of the repository. so you won't forget to commit, pull or push.
+
+<hr>
 
 ###### Now enjoy YouTube Music & your local Music in terminal.
+
+<hr>
+
+#### Snaps:
+<img src="https://github.com/tribhuwan-kumar/Artimux/assets/118052427/29de7c19-576b-4ae3-8106-23b47f607fca" />
 

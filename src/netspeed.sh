@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
-#<------------------------------Netspeed widget for TMUX------------------------------------>
+#<------------------------------Netspeed widget for ARTITMUX------------------------------------>
 # author : @tribhuwan-kumar
 # email : freakybytes@duck.com
 #<------------------------------------------------------------------------------------------>
 
-# Choose wlan0 as main interface
-INTERFACE="wlan0"
+# Check the global values
+SHOW_NETSPEED=$(tmux show-option -gv @Artimux_show_netspeed)
+if [ "$SHOW_NETSPEED" != "true" ]; then
+    exit 0
+fi
+
+# Get network interface
+INTERFACE=$(tmux show-option -gv @Artimux_netspeed_iface 2>/dev/null)
 
 # Get network transmit data from /proc/net/dev
 get_bytes() {
@@ -29,7 +35,7 @@ readable_format() {
     fi
 }
 
-# Echo with truncate condition
+# Echo
 while true; do
     read RX1 TX1 < <(get_bytes "$INTERFACE")
     sleep 1
@@ -43,11 +49,6 @@ while true; do
     RX_SPEED=$(readable_format "$((RX_DIFF / TIME_DIFF))")
     TX_SPEED=$(readable_format "$((TX_DIFF / TIME_DIFF))")
 
-    width=$(tmux display -p '#{window_width}')
-    if [ "$width" -lt 115 ]; then
-        echo "❬ ⮛ $RX_SPEED ⮙ $TX_SPEED"
-    else
-        echo "❬ ⮛ $RX_SPEED ⮙ $TX_SPEED $(date '+❬ %I:%M %p')"
-    fi
+    echo "❬ ⮛ $RX_SPEED ⮙ $TX_SPEED"
 done
 
