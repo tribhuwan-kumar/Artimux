@@ -39,6 +39,7 @@ window_id_style="${window_id_style:-$default_window_id_style}"
 pane_id_style="${pane_id_style:-$default_pane_id_style}"
 zoom_id_style="${zoom_id_style:-$default_zoom_id_style}"
 
+battery="#($SCRIPTS_PATH/battery.sh)"
 tym="#($SCRIPTS_PATH/tym-widget.sh)"
 netspeed="#($SCRIPTS_PATH/netspeed.sh)"
 time="#($SCRIPTS_PATH/time-widget.sh)"
@@ -59,5 +60,5 @@ tmux set -g window-status-current-format "#[fg=#44dfaf,bg=#090909]   #[fg=#c0
 tmux set -g window-status-format "#[fg=#c0caf5,bg=default,none,dim]   $window_number #W#[nobold,dim]#{?window_zoomed_flag, $zoom_number, $custom_pane}#[fg=#e5a340] #{?window_last_flag,󰁯 ,} "
 
 #+--- Bars RIGHT ---+
-tmux set -g status-right "$git_status#[fg=#8a8cab,bg=#090909] $netspeed#[fg=#8a8cab,bg=#090909]$time$tym$cmus_status"
+tmux set -g status-right "$git_status #[fg=#8a8cab,bg=#090909]$battery$netspeed#[fg=#8a8cab,bg=#090909]$time$tym$cmus_status"
 tmux set -g window-status-separator ""

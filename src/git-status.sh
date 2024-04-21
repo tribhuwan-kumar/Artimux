@@ -25,6 +25,6 @@ fi
 
 sleep 900
 INTERVAL="$(tmux show -g | grep status-interval | cut -d" " -f2 | bc)"
-if [[ $INTERVAL < 60 ]]; then
+if [[ $INTERVAL -lt 60 ]]; then
     sleep 900
 fi
