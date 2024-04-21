@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-SHOW_NETSPEED=$(tmux show-option -gv @Artimux_show_battery)
-if [ "$SHOW_NETSPEED" != "true" ]; then
+SHOW_BATTERY=$(tmux show-option -gv @Artimux_show_battery)
+if [ "$SHOW_BATTERY" != "true" ]; then
     exit 0
 fi
 
