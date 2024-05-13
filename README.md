@@ -73,9 +73,6 @@ For status bar numbers customization [see](https://github.com/janoamaral/tokyo-n
 ### TYM
 - Same as CMUS widget, but for TYM.
 
-### Battery
-- Widget for battery percentage
-
 ### Git Branch and Status indicator
 - Enabled by default
 - Shows the current git branch and status of the repository. so you won't forget to commit, pull or push.
