@@ -59,6 +59,11 @@ set -g @Artimux_netspeed_iface "wlan0" # your network interface, find with ip li
 set -g @Artimux_show_time "true"
 set -g @Artimux_time_format "12HR" # 12HR or 24HR
 ```
+
+### Battery
+```bash
+set -g @Artimux_show_battery "true"
+```
 set variables values `"false"` to disable the widget, Remember to restart the tmux after changing values.
 <br>
 For status bar numbers customization [see](https://github.com/janoamaral/tokyo-night-tmux#the-styles)
