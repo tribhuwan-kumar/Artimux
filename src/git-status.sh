@@ -3,7 +3,6 @@
 cd "$1" || exit 1
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    echo " "
     exit 0
 fi
 
@@ -24,7 +23,3 @@ else
 fi
 
 sleep 900
-INTERVAL="$(tmux show -g | grep status-interval | cut -d" " -f2 | bc)"
-if [[ $INTERVAL -lt 60 ]]; then
-    sleep 900
-fi

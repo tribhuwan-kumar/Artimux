@@ -6,10 +6,11 @@ TYM_PID=$(ps aux | grep "/usr/local/bin/tym" | grep -v grep | awk '{print $2}' |
 CURRENT_PANE_TYMID=$(pgrep -P $CURRENT_PANE_PID | xargs -n 1 pstree -p | grep -oP 'bash\(\K\d+(?=\))' | tail -n 1)
 
 # Rename current window
-if [ -n "$TYM_PID" ] && [ -n "$CURRENT_PANE_TYMID" ]; then
-    if [ "$CURRENT_PANE_TYMID" == "$TYM_PID" ]; then
-        tmux rename-window " ƬƳ𐒄 ℓινє.."
-    fi
+if [ -n "$TYM_PID" ] && [ -n "$CURRENT_PANE_TYMID" ] && [ "$CURRENT_PANE_TYMID" == "$TYM_PID" ]; then
+    tmux rename-window " ƬƳ𐒄 ℓινє.."
+else
+    # For current command use #{pane_current_command}
+    tmux rename-window "$(basename "$(tmux display-message -p '#{pane_current_path}')")"
 fi
 
 # MPV socket activation check
