@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-
+#<------------------------------------------Battery widget----------------------------------------->
+RESET="#[fg=#8a8cab,bg=default]"
 SHOW_BATTERY=$(tmux show-option -gv @Artimux_show_battery)
 if [ "$SHOW_BATTERY" != "true" ]; then
     exit 0
@@ -10,8 +11,10 @@ format_bat() {
     local STATUS=$2
 
     if [ "$STATUS" == "Charging" ]; then
-        if [ "$CAPACITY" -lt 25 ]; then
+        if [ "$CAPACITY" -lt 15 ]; then
             echo "❬ 󰢜 $CAPACITY% "
+        elif [ "$CAPACITY" -lt 25 ]; then
+            echo "❬ 󰂆 $CAPACITY% "
         elif [ "$CAPACITY" -lt 50 ]; then
             echo "❬ 󰂈 $CAPACITY% "
         elif [ "$CAPACITY" -lt 75 ]; then
@@ -22,7 +25,9 @@ format_bat() {
             echo "❬ 󰂅 $CAPACITY% "
         fi
     else
-        if [ "$CAPACITY" -lt 25 ]; then
+        if [ "$CAPACITY" -lt 15 ]; then
+            echo "❬ #[fg=##ff073f,blink]󱃍 $CAPACITY%$RESET "
+        elif [ "$CAPACITY" -lt 25 ]; then
             echo "❬ 󰁻 $CAPACITY% "
         elif [ "$CAPACITY" -lt 50 ]; then
             echo "❬ 󰁽 $CAPACITY% "
@@ -31,7 +36,7 @@ format_bat() {
         elif [ "$CAPACITY" -lt 90 ]; then
             echo "❬ 󰂂 $CAPACITY% "
         elif [ "$CAPACITY" -lt 100 ]; then
-            echo "❬ 󰂃 $CAPACITY% "
+            echo "❬ 󰁹 $CAPACITY% "
         fi
     fi
 }

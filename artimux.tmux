@@ -1,33 +1,32 @@
 #!/usr/bin/env bash
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# title      Tokyo Night                                              +
-# version    1.0.0                                                    +
-# repository https://github.com/logico-dev/tokyo-night-tmux           +
+# title      Artimux												  +
+# repository https://github.com/tribhuwan-kumar/Artimux				  +
 # author     Lógico                                                   +
 # email      hi@logico.com.ar                                         +
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-RESET="#[fg=brightwhite,bg=#090909,nobold,noitalics,nounderscore,nodim]"
+RESET="#[fg=brightwhite,bg=default,nobold,noitalics,nounderscore,nodim]"
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+# Status bars length
 tmux set -g status-left-length 80
 tmux set -g status-right-length 150
 
 # Highlight colors
 tmux set -g mode-style "fg=#090909,bg=#a9b1d6"
-
-tmux set -g message-style "bg=#090909,fg=#a9b1d6"
-tmux set -g message-command-style "fg=#a9b1d6,bg=#090909"
-
+tmux set -g status-style "bg=default"
+tmux set -g message-style "fg=#a9b1d6"
 tmux set -g pane-border-style "fg=#a9b1d6"
+tmux set -g message-command-style "fg=#a9b1d6,bg=default"
 tmux set -g pane-active-border-style "fg=#a9b1d6"
 
-tmux set -g status-style bg="#090909"
-
+# Vars
 SCRIPTS_PATH="$CURRENT_DIR/src"
 TMUX_VARS="$(tmux show -g)"
 PANE_BASE="$(echo "$TMUX_VARS" | grep pane-base-index | cut -d" " -f2 | bc)"
 
+# Styles
 default_window_id_style="digital"
 default_pane_id_style="hsquare"
 default_zoom_id_style="dsquare"
@@ -51,14 +50,14 @@ zoom_number="#($SCRIPTS_PATH/custom-number.sh #P $zoom_id_style)"
 
 #+--- Bars LEFT ---+
 # Session name
-tmux set -g status-left "#[fg=#bbc0c8,bg=#090909,bold] #{?client_prefix,󰠠 ,#[dim]󰤂 }#[fg=#bbc0c8,bg=#090909,bold,nodim]#S $RESET"
+tmux set -g status-left "#[fg=#bbc0c8,bold] #{?client_prefix,󰠠 ,#[dim]󰤂 }#[fg=#bbc0c8,bold,nodim]#S $RESET"
 
 #+--- Windows ---+
 # Focus
-tmux set -g window-status-current-format "#[fg=#44dfaf,bg=#090909]   #[fg=#c0caf5]$window_number #[bold,nodim]#W#[nobold,dim]#{?window_zoomed_flag, $zoom_number, $custom_pane} #{?window_last_flag,,} "
+tmux set -g window-status-separator ""
+tmux set -g window-status-current-format "#[fg=#44dfaf]  #[fg=#c0caf5]$window_number #[bold,nodim]#W#[nobold,dim]#{?window_zoomed_flag, $zoom_number, $custom_pane} #{?window_last_flag,,} "
 # Unfocused
-tmux set -g window-status-format "#[fg=#c0caf5,bg=default,none,dim]   $window_number #W#[nobold,dim]#{?window_zoomed_flag, $zoom_number, $custom_pane}#[fg=#e5a340] #{?window_last_flag,󰁯 ,} "
+tmux set -g window-status-format "#[fg=#c0caf5,none,dim]  $window_number #W#[nobold,dim]#{?window_zoomed_flag, $zoom_number, $custom_pane}#[fg=#e5a340] #{?window_last_flag,󰁯 ,} "
 
 #+--- Bars RIGHT ---+
-tmux set -g status-right "$git_status #[fg=#8a8cab,bg=#090909]$battery$netspeed#[fg=#8a8cab,bg=#090909]$time$tym$cmus_status"
-tmux set -g window-status-separator ""
+tmux set -g status-right "$git_status#[fg=#8a8cab]$battery#[fg=#8a8cab]$netspeed$time$tym$cmus_status"

@@ -16,17 +16,17 @@ FORMAT=${2:-none}
 # Preserve leading whitespace for bash
 format="$(eval echo \"\$format_${FORMAT}\")"
 if [ -z "$format" ]; then
-  echo "Invalid format: $FORMAT"
-  exit 1
+    echo "Invalid format: $FORMAT"
+    exit 1
 fi
 
 # If format is roman numerals (-r), only handle IDs of 1 digit
 if [ "$FORMAT" = "roman" ] && [ ${#ID} -gt 1 ]; then
-  echo -n $ID
-  continue
+    echo -n $ID
+    continue
 else
-  for ((i = 0; i < ${#ID}; i++)); do
-    DIGIT=${ID:$i:1}
-    echo -n "${format:$DIGIT:1}"
-  done
+    for ((i = 0; i < ${#ID}; i++)); do
+        DIGIT=${ID:$i:1}
+        echo -n "${format:$DIGIT:1}"
+    done
 fi
