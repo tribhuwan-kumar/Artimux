@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #<------------------------------------------Battery widget----------------------------------------->
-RESET="#[fg=#8a8cab,bg=default]"
+RESET="#[fg=#8a8cab,bg=default,noblink]"
 SHOW_BATTERY=$(tmux show-option -gv @Artimux_show_battery)
 if [ "$SHOW_BATTERY" != "true" ]; then
     exit 0

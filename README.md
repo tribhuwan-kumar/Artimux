@@ -1,5 +1,5 @@
 # Artimux
-A clean dark theme for tmux, inspired by [janoamaral/tokyo-night-tmux](https://github.com/janoamaral/tokyo-night-tmux). I just added some widgets and YouTube
+A clean dark transparent theme for tmux which respects your default terminal background, inspired by [janoamaral/tokyo-night-tmux](https://github.com/janoamaral/tokyo-night-tmux). I just added some widgets and YouTube
 Music integration.
 
 ## Installation

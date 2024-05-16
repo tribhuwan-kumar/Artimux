@@ -38,9 +38,9 @@ if [ "$WIN_WIDTH" -lt 115 ]; then
     echo -ne ""
 else
     if [ "$PLAY_STATE" == "false" ]; then
-        echo -e " ❬ 󰽰 $(echo "$MEDIA_TITLE" | sed 's/[^a-zA-Z0-9 ]//g' | awk '{print $1,$2,$3}')"
+        echo -e " ❬ 󰽰 $(echo "$MEDIA_TITLE" | sed 's/[^a-zA-Z0-9 ]//g' | awk '{print $1,$2,$3}').."
     else
-        echo -e " ❬ 󰏤 $(echo "$MEDIA_TITLE" | sed 's/[^a-zA-Z0-9 ]//g' | awk '{print $1,$2,$3}')"
+        echo -e " ❬ 󰏤 $(echo "$MEDIA_TITLE" | sed 's/[^a-zA-Z0-9 ]//g' | awk '{print $1,$2,$3}').."
     fi
 fi
 
