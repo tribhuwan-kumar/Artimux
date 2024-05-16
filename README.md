@@ -84,5 +84,6 @@ For status bar numbers customization [see](https://github.com/janoamaral/tokyo-n
 <hr>
 
 #### Snaps:
-<img src="https://github.com/tribhuwan-kumar/Artimux/assets/118052427/29de7c19-576b-4ae3-8106-23b47f607fca" />
+
+<img src="https://github.com/tribhuwan-kumar/Artimux/assets/118052427/ec3a6901-232e-442c-81f9-1578bf489179" />
 
