@@ -25,7 +25,7 @@ format_bat() {
             echo "❬ 󰂅 $CAPACITY% "
         fi
     else
-        if [ "$CAPACITY" -lt 15 ]; then
+        if [ "$CAPACITY" -lt 16 ]; then
             echo "❬ #[fg=##ff073f,blink]󱃍 $CAPACITY%$RESET "
         elif [ "$CAPACITY" -lt 25 ]; then
             echo "❬ 󰁻 $CAPACITY% "
