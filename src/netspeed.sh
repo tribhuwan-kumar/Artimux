@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #<------------------------------Netspeed widget for ARTITMUX------------------------------------>
 # author : @tribhuwan-kumar
-# email : freakybytes@duck.com
+# email : trashbhuwan@duck.com
 #<------------------------------------------------------------------------------------------>
 
 # Check the global values

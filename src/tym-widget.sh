@@ -23,6 +23,7 @@ echo_info() {
     if mpv_socket_active; then
         MEDIA_TITLE=$(echo '{ "command": ["get_property", "media-title"] }' | socat - /tmp/mpvsocket | jq -r '.data')
         PLAY_STATE=$(echo '{ "command": ["get_property", "pause"] }' | socat - /tmp/mpvsocket | jq -r '.data')
+        LOOP_STATUS=$(echo '{ "command": ["get_property", "loop"] }' | socat - /tmp/mpvsocket | jq -r '.data')
     else
         exit 0
     fi
@@ -37,9 +38,17 @@ if [ "$WIN_WIDTH" -lt 115 ]; then
     echo -ne ""
 else
     if [ "$PLAY_STATE" == "false" ]; then
-        echo -e " ❬ 󰽰 $(echo "$MEDIA_TITLE" | sed 's/[^a-zA-Z0-9 ]//g' | awk '{print $1,$2,$3}').."
+        if [ "$LOOP_STATUS" == "inf" ]; then
+            echo -e " ❬ 󰛤  󰽰 $(echo "$MEDIA_TITLE" | sed 's/[^a-zA-Z0-9 ]//g' | awk '{print $1,$2,$3}').."
+        else
+            echo -e " ❬ 󰽰 $(echo "$MEDIA_TITLE" | sed 's/[^a-zA-Z0-9 ]//g' | awk '{print $1,$2,$3}').."
+        fi
     else
-        echo -e " ❬  $(echo "$MEDIA_TITLE" | sed 's/[^a-zA-Z0-9 ]//g' | awk '{print $1,$2,$3}').."
+        if [ "$LOOP_STATUS" == "inf" ]; then
+            echo -e " ❬ 󰛤   $(echo "$MEDIA_TITLE" | sed 's/[^a-zA-Z0-9 ]//g' | awk '{print $1,$2,$3}').."
+        else
+            echo -e " ❬  $(echo "$MEDIA_TITLE" | sed 's/[^a-zA-Z0-9 ]//g' | awk '{print $1,$2,$3}').."
+        fi
     fi
 fi
 
